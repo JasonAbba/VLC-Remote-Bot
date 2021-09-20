@@ -6,7 +6,7 @@ import time
 import telebot
 from telebot import *
 
-API_KEY = "1963414164:AAHaqMcoZzmgsam_xS-krhb79trm76j7XbE"
+API_KEY = "Your API KEY"
 
 # globals
 season_directory = ''
@@ -87,7 +87,7 @@ def select_episode(message):
 def season_chosen(message):
     global season_directory
     # print(message.text)
-
+    # add your own directory address for season_directory
     if message.text == 'Season 1':
         season_directory = r'I:\How I Met Your Mother Season 1\ '
     elif message.text == 'Season 2':
@@ -125,12 +125,12 @@ def episode_chosen(message):
 
     
 
-@bot.message_handler(commands=['season']) # >>play 3 10 (aka "play season 3 episode 10")
+@bot.message_handler(commands=['season'])
 def season(message):
     season = select_season(message)
     bot.register_next_step_handler(season, season_chosen)
 
-@bot.message_handler(commands=['episode']) # >>play 3 10 (aka "play season 3 episode 10")
+@bot.message_handler(commands=['episode'])
 def episode(message):
     episode = select_episode(message)
     bot.register_next_step_handler(episode, episode_chosen)
@@ -184,7 +184,7 @@ def done(message):
 
 bot.polling()
 
-#----------------------------------------------------------------------------------------------------------------#
-# Different episodes have different file extensions (eg. .mp4, .mkv, .webmp) dont forget to change it in the code
-# changes to be at lines
-#----------------------------------------------------------------------------------------------------------------#
+#------------------------------------------------------------------------------------------------------------------#
+# Different episodes have different file extensions (eg. .mp4, .mkv, .webmp) don't forget to change it in the code.
+# Changes to be done at line 169
+#------------------------------------------------------------------------------------------------------------------#
